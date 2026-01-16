@@ -8,8 +8,37 @@
   background-color: transparent;
   border: none;
 
+  padding-top: 5px;
+  padding-bottom: 5px;
+
   & svg {
     fill: var(--color-text);
+  }
+}
+
+.navigationBox {
+  display: none;
+}
+
+.linkNav {
+  font-size: 18px;
+}
+
+.addressBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkAddress {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: var(--color-text);
+
+  & svg {
+    fill: white;
   }
 }
 
@@ -17,6 +46,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .menuBtn {
+    display: none;
+  }
+
+  .navigationBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {

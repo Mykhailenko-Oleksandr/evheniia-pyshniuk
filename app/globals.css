@@ -12,7 +12,7 @@
   --color-neutral-stone: #d5cfbf;
 
   --color-text: var(--color-accent-burgundy);
-  --color-background:var(--color-off-white)
+  --color-background: var(--color-off-white);
 }
 
 /* =====================================
@@ -34,7 +34,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  background-color: var( --color-background);
+  background-color: var(--color-background);
 
   color: var(--color-text);
   line-height: 150%;
@@ -147,6 +147,7 @@ textarea:-webkit-autofill:focus {
 
 @media only screen and (min-width: 768px) {
   .container {
+    /* font-size: 18px; */
     /* max-width: 768px; */
     padding: 0 32px;
   }
@@ -161,6 +162,7 @@ textarea:-webkit-autofill:focus {
 
 @media only screen and (min-width: 1440px) {
   .container {
+    /* font-size: 20px; */
     max-width: 1440px;
     padding: 0 64px;
   }
