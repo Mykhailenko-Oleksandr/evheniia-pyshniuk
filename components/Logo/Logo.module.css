@@ -1,36 +1,33 @@
-.logoBox{
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.logoBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.logoIcon{
-    fill: var(--color-text);
+.logoIcon {
+  fill: var(--color-text);
 }
 
-.nameBox{
-    font-family: var(--font-playfair-display), serif;
-    font-weight: 600;
-    font-size: 20px;
+.nameBox {
+  font-family: var(--font-playfair-display), serif;
+  font-weight: 500;
+  font-size: 18px;
 }
 
-.firstName{}
+.firstName {
+}
 
-.lastName{
+.lastName {
 }
 
 @media only screen and (min-width: 480px) {
- 
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 1024px) {
-  
 }
 
 @media only screen and (min-width: 1440px) {
-  
 }

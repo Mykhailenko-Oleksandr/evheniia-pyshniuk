@@ -1,2 +1,26 @@
-.header {
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menuBtn {
+  background-color: transparent;
+  border: none;
+
+  & svg {
+    fill: var(--color-text);
+  }
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1440px) {
 }
