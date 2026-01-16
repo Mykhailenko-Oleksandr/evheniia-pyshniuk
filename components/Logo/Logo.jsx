@@ -3,12 +3,12 @@ import css from "./Logo.module.css";
 export default function Logo() {
   return (
     <div className={css.logoBox}>
-      <svg width={32} height={32}>
+      <svg className={css.logoIcon} width={32} height={32}>
         <use href="/icons.svg#logo"></use>
       </svg>
-      <div>
-        <p>Yevheniia</p>
-        <p>Pyshniuk</p>
+      <div className={css.nameBox}>
+        <p className={css.firstName}>Yevheniia</p>
+        <p className={css.lastName}>Pyshniuk</p>
       </div>
     </div>
   );

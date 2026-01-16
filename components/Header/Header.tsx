@@ -1,10 +1,11 @@
 import css from "./Header.module.css";
+import Logo from '../Logo/Logo'
 
 export default async function Header() {
   return (
     <header className={css.header}>
       <div className="container">
-        <h2>Header</h2>
+<Logo/>
       </div>
     </header>
   );
