@@ -25,12 +25,14 @@
 }
 
 .addressBox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: none;
 }
 
 .linkAddress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 40px;
   height: 40px;
 
@@ -54,6 +56,12 @@
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .addressBox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 }
 
