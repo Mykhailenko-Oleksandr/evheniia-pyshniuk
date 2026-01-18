@@ -10,9 +10,7 @@ export default function Error({ reset }: Props) {
     <div className={`container ${css.section}`}>
       <h2 className={css.title}>Something went wrong 😢</h2>
       <p className={css.description}>Please try again later</p>
-      <button
-        className={css.buttonError}
-        onClick={() => reset()}>
+      <button className={css.buttonError} onClick={() => reset()}>
         Try again
       </button>
     </div>

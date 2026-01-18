@@ -1,24 +1,17 @@
-import { Metadata } from "next";
-import css from "./Home.module.css";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Not Found",
-  description: "No such page exists",
-  openGraph: {
-    title: "Not Found",
-    description: "No such page exists",
-    url: "https://",
-    images: [{ url: "" }],
-  },
-};
+import Error from "next/error";
 
-export default function NotFound() {
+// This page renders when a route like `/unknown.txt` is requested.
+// In this case, the layout at `app/[locale]/layout.tsx` receives
+// an invalid value as the `[locale]` param and calls `notFound()`.
+
+export default function GlobalNotFound() {
   return (
-    <div className={`container ${css.section}`}>
-      <h2 className={css.title}>404 - Page not found</h2>
-      <p className={css.description}>
-        Sorry, the page you are looking for does not exist.
-      </p>
-    </div>
+    <html lang="en">
+      <body>
+        <Error statusCode={404} />;
+      </body>
+    </html>
   );
 }
