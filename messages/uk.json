@@ -1,4 +1,17 @@
 {
+  "ariaLabel": {
+    "menuBtn": "Відкрити меню",
+    "logotype": "Логотип",
+    "phone": "Зателефонувати за номером",
+    "mail": "Написати листа на електронну пошту",
+    "telegram": "Написати повідомлення у Telegram",
+    "whatsApp": "Написати повідомлення у WhatsApp",
+    "instagram": "Відкрити профіль в Instagram"
+  },
+  "navigation": {
+    "prices": "Ціни",
+    "projects": "Проєкти"
+  },
   "HomePage": {
     "title": "Привіт світ!"
   }

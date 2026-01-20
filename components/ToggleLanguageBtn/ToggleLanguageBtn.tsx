@@ -1,9 +1,10 @@
 "use client";
 
+import css from "./ToggleLanguageBtn.module.css";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-export default function LangBtn() {
+export default function ToggleLanguageBtn() {
   const pathname = usePathname();
   const router = useRouter();
   const currentLocale = useLocale();
@@ -13,10 +14,6 @@ export default function LangBtn() {
   }
 
   return (
-    <button
-      style={{ width: 40, height: 40 }}
-      type="button"
-      onClick={toggleLang}
-    ></button>
+    <button className={css.btn} type="button" onClick={toggleLang}></button>
   );
 }

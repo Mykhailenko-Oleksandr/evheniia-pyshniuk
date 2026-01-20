@@ -1,0 +1,40 @@
+.addressBox {
+  display: none;
+}
+
+.addressList {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.addressLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: var(--color-text);
+
+  & svg {
+    fill: white;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+  .addressBox {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1440px) {
+}

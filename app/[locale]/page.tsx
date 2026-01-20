@@ -1,4 +1,3 @@
-import LangBtn from "@/components/LangBtn/LangBtn";
 import css from "./Home.module.css";
 import { useTranslations } from "next-intl";
 
@@ -22,10 +21,6 @@ export default function Home({ params }: HomeProps) {
       <div className="container">
         <h1>{t("title")}</h1>
       </div>
-
-      <LangBtn />
-
-      {/* <Link href={switchPath}>{otherLocale.toUpperCase()}</Link> */}
     </section>
   );
 }

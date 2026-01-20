@@ -1,4 +1,4 @@
-import createMDX from "@next/mdx";
+// import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
@@ -14,13 +14,12 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 // export default nextConfig;
 
-const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
-
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ protocol: "https", hostname: "ac.goit.global" }],
   },
 };
 
-const withMDX = createMDX();
-export default withNextIntl(withMDX(nextConfig));
+const withNextIntl = createNextIntlPlugin();
+// const withMDX = createMDX();
+export default withNextIntl(nextConfig);

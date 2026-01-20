@@ -1,4 +1,17 @@
 {
+  "ariaLabel": {
+    "menuBtn": "Open the menu",
+    "logotype": "Logotype",
+    "phone": "Call the phone number",
+    "mail": "Send an email",
+    "telegram": "Send a message on Telegram",
+    "whatsApp": "Send a message on WhatsApp",
+    "instagram": "Open the Instagram profile"
+  },
+  "navigation": {
+    "prices": "Prices",
+    "projects": "Projects"
+  },
   "HomePage": {
     "title": "Hello world!"
   }

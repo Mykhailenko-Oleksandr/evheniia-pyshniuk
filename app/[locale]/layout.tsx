@@ -1,3 +1,6 @@
+import "modern-normalize";
+import "./globals.css";
+
 import { Toaster } from "react-hot-toast";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
@@ -7,7 +10,8 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import Header from "@/components/Header/Header";
 
 const lora = Lora({
   subsets: ["latin", "cyrillic"],
@@ -23,22 +27,35 @@ const playfairDisplay = Playfair_Display({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "",
-  description: "",
-  openGraph: {
-    title: "",
-    description: "",
-    url: "https://",
-    images: [{ url: "" }],
-  },
-};
+// export const metadata: Metadata = {
+//   title: "",
+//   description: "",
+//   openGraph: {
+//     title: "",
+//     description: "",
+//     url: "https://",
+//     images: [{ url: "" }],
+//   },
+// };
+
+interface MetadataProps {
+  params: Promise<{ locale: string }>;
+}
+
+// export async function generateMetadata({ params }: MetadataProps) {
+//   const { locale } = await params;
+//   const t = await getTranslations({ locale, namespace: "Metadata" });
+
+//   return {
+//     title: t("title"),
+//   };
+// }
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: Readonly<{
@@ -56,13 +73,15 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={`${playfairDisplay.variable} ${lora.variable}`}>
-        {/* <TanStackProvider> */}
-        {/* <Header /> */}
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        {/* <Footer /> */}
-        {/* <Toaster /> */}
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-        {/* </TanStackProvider> */}
+        <TanStackProvider>
+          <NextIntlClientProvider>
+            <Header />
+            {children}
+          </NextIntlClientProvider>
+          {/* <Footer /> */}
+          <Toaster />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </TanStackProvider>
       </body>
     </html>
   );
