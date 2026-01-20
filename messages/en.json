@@ -14,8 +14,8 @@
     "projects": "Projects"
   },
   "authButtons": {
-    "register": "Sign up",
-    "login": "Sign in"
+    "register": "Register",
+    "login": "Log in"
   },
   "HomePage": {
     "title": "Hello world!"

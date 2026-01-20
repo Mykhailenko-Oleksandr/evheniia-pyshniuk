@@ -1,5 +1,10 @@
 .addressBox {
   display: none;
+
+  &.visible {
+    display: block;
+    margin-bottom: 40px;
+  }
 }
 
 .addressList {

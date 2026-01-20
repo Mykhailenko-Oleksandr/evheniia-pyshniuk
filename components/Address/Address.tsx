@@ -1,12 +1,17 @@
 import { useTranslations } from "next-intl";
 import css from "./Address.module.css";
 import { Link } from "@/i18n/navigation";
+import clsx from "clsx";
 
-export default function Address() {
+interface AddressProps {
+  menu?: boolean;
+}
+
+export default function Address({ menu }: AddressProps) {
   const t = useTranslations("ariaLabel");
 
   return (
-    <address className={css.addressBox}>
+    <address className={clsx(css.addressBox, menu && css.visible)}>
       <ul className={css.addressList}>
         <li className={css.addressItem}>
           <Link
