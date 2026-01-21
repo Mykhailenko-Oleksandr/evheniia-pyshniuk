@@ -17,21 +17,25 @@
 }
 
 .headerRightBox {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display: none;
 }
 
 @media only screen and (min-width: 480px) {
 }
 
 @media only screen and (min-width: 768px) {
-  .menuBtn {
-    display: none;
-  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .menuBtn {
+    display: none;
+  }
+
+  .headerRightBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {

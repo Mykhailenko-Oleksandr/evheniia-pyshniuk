@@ -40,6 +40,11 @@
 @media only screen and (min-width: 768px) {
   .addressBox {
     display: block;
+
+    &.visible {
+      display: none;
+      margin-bottom: unset;
+    }
   }
 }
 

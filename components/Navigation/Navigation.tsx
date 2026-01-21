@@ -5,21 +5,28 @@ import clsx from "clsx";
 
 interface NavigationProps {
   isMenu?: boolean;
+  closeMenu: () => void;
 }
 
-export default function Navigation({ isMenu }: NavigationProps) {
+export default function Navigation({ isMenu, closeMenu }: NavigationProps) {
   const t = useTranslations("navigation");
 
   return (
     <nav className={clsx(css.navBox, isMenu && css.visible)}>
       <ul className={clsx(css.navList, isMenu && css.column)}>
         <li className={css.navItem}>
-          <Link className={css.navLink} href="/">
+          <Link
+            onClick={closeMenu}
+            className={css.navLink}
+            href="/">
             {t("prices")}
           </Link>
         </li>
         <li className={css.navItem}>
-          <Link className={css.navLink} href="/">
+          <Link
+            onClick={closeMenu}
+            className={css.navLink}
+            href="/">
             {t("projects")}
           </Link>
         </li>

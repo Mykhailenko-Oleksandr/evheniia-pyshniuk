@@ -1,13 +1,26 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
 import css from "./Logo.module.css";
 import { useTranslations } from "next-intl";
 
-export default function Logo() {
+interface LogoProps {
+  closeMenu?: () => void;
+}
+
+export default function Logo({ closeMenu }: LogoProps) {
   const t = useTranslations("ariaLabel");
 
   return (
-    <Link className={css.logoBox} href="/" aria-label={t("logotype")}>
-      <svg className={css.logoIcon} width={48} height={48}>
+    <Link
+      onClick={closeMenu}
+      className={css.logoBox}
+      href="/"
+      aria-label={t("logotype")}>
+      <svg
+        className={css.logoIcon}
+        width={48}
+        height={48}>
         <use href="/icons.svg#logo"></use>
       </svg>
       <div className={css.nameBox}>

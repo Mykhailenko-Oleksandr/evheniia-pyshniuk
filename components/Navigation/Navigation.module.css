@@ -22,12 +22,17 @@
 }
 
 @media only screen and (min-width: 480px) {
+  .navBox {
+    display: block;
+
+    &.visible {
+      display: none;
+      margin-bottom: unset;
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .navBox {
-    display: block;
-  }
 }
 
 @media only screen and (min-width: 1024px) {
