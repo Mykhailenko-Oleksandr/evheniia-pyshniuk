@@ -14,7 +14,7 @@ export default function Logo({ closeMenu }: LogoProps) {
   return (
     <Link
       onClick={closeMenu}
-      className={css.logoBox}
+      className={css.logoLink}
       href="/"
       aria-label={t("logotype")}>
       <svg

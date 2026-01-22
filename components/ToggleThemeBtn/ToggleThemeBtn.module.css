@@ -7,7 +7,7 @@
   width: 37px;
   height: 37px;
 
-  background-color: var(--color-text);
+  background-color: var(--color-button);
   border: none;
   border-radius: 50%;
 
@@ -24,9 +24,9 @@
   right: -5px;
   width: 2px;
   height: 100%;
-  background-color: var(--color-text);
+  background-color: var(--color-button);
 }
 
 .darkBtn {
-  background-color: var(---color-);
+  /* background-color: var(---color-); */
 }
