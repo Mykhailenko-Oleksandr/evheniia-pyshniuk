@@ -12,21 +12,25 @@
 .heroTitle {
   font-family: var(--font-playfair-display);
 
-  display: inline-block;
+  display: block;
+  /* background-color: #fff; */
   max-width: 300px;
 
   text-align: center;
   font-size: 36px;
   line-height: 100%;
 
+  /* box-shadow: 0px 0px 21px 27px #ffffff;
+
+  text-shadow: 0 0 60px #fff; */
+
   text-shadow:
-    -20px -20px 20px white,
-    20px -20px 20px white,
-    20px 20px 20px white,
-    -20px 20px 20px white,
-    0px 20px 20px white,
-    0px -21px 20px white,
-    0px -21px 20px white;
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff,
+    0 0 60px #fff,
+    0 0 80px #fff;
 }
 
 @media only screen and (min-width: 375px) {
@@ -41,6 +45,12 @@
   }
 }
 
+@media only screen and (min-width: 375px) {
+  .heroTitle {
+    max-width: 250px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .heroPrice {
     background-position: bottom;
@@ -50,6 +60,7 @@
   .heroTitle {
     margin-left: 80px;
     font-size: 52px;
+    max-width: 265px;
   }
 }
 
@@ -62,6 +73,7 @@
   .heroTitle {
     margin-left: 150px;
     font-size: 58px;
+    max-width: 300px;
   }
 }
 
@@ -71,9 +83,9 @@
   }
 
   .heroTitle {
-    max-width: unset;
+    max-width: 690px;
     text-align: center;
-    margin-left: unset;
+    margin: 0 auto;
     font-size: 72px;
   }
 }
