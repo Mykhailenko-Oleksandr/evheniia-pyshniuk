@@ -6,35 +6,41 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
-  transition:
-    transform 300ms ease,
-    box-shadow 300ms ease;
+  transition: transform 400ms ease;
 
-  /* &:hover {
-    transform: translateY(-2px) scale(1.02); */
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+  &:hover,
+  &:focus {
+    transform: translateY(-2px) scale(1.02);
 
-  /* & .logoIcon {
+    & .logoIcon {
       fill: var(--color-button-hover);
-      transition: fill 300ms ease;
     }
 
     & .firstName,
     & .lastName {
       color: var(--color-button-hover);
-      transition: color 300ms ease;
     }
-  } */
+  }
+
+  &:active {
+    transform: translateY(0) scale(1);
+  }
 }
 
 .logoIcon {
   fill: var(--color-text);
+  transition: fill 300ms ease;
 }
 
 .nameBox {
   font-family: var(--font-playfair-display), serif;
   font-weight: 600;
   font-size: 18px;
+}
+
+.firstName,
+.lastName {
+  transition: color 300ms ease;
 }
 
 @media only screen and (min-width: 480px) {

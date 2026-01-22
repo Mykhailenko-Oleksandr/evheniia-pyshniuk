@@ -8,6 +8,7 @@
   --color-off-white: #f5f5f5;
   --color-soft-olive: #686a47;
   --color-deep-olive: #616253;
+  --color-dark-olive: #4b5320;
   --color-accent-burgundy: #481e28;
   --color-neutral-stone: #d5cfbf;
 
@@ -15,7 +16,7 @@
   --color-background: var(--color-off-white);
   --color-border: var(--color-accent-burgundy);
   --color-button: var(--color-accent-burgundy);
-  --color-button-hover: var(--color-deep-olive);
+  --color-button-hover: var(--color-dark-olive);
 }
 
 /* =====================================

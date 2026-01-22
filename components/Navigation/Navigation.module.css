@@ -24,14 +24,22 @@
   padding: 15px 0;
   font-size: 17px;
 
+  transition: color 300ms ease;
+
   &.menuLink {
     font-size: 20px;
     padding: 0;
   }
 
+  &:hover,
+  &:focus {
+    color: var(--color-button-hover);
+  }
+
   &:hover::after,
   &:focus::after {
     transform: scaleX(1);
+    background-color: var(--color-button-hover);
   }
 }
 
@@ -48,7 +56,9 @@
 
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 300ms ease;
+  transition:
+    transform 300ms ease,
+    background-color 300ms ease;
 }
 
 .navLink.menuLink::after {
