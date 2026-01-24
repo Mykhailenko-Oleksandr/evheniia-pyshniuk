@@ -10,12 +10,30 @@
 }
 
 .image {
+  width: 100%;
 }
 
 .contentBox {
+  position: relative;
+  top: -25px;
+
+  padding: 30px 15px;
+  background-color: var(--color-background-card);
+  border-radius: 20px 20px 0 0;
+  border: 1px solid var(--color-border);
+
+  z-index: 10;
 }
 
 .contentTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+
+  & span {
+    display: block;
+  }
 }
 
 .contentList {
@@ -24,31 +42,75 @@
 .contentItem {
 }
 
+.contentItem:last-of-type {
+  margin-bottom: 10px;
+}
+
+.packageTitle {
+  margin-bottom: 5px;
+}
+
 .text {
 }
 
 .contentListSecond {
+  list-style: disc;
+  padding-left: 35px;
 }
 
 .listSecondItem {
 }
 
 .bottomBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  @media only screen and (max-width: 320px) {
+    justify-content: center;
+  }
 }
 
 .bottomTextBox {
 }
 
 .bottomBoxTextTop {
+  text-align: center;
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 .bottomBoxTextBottom {
+  text-align: center;
 }
 
 @media only screen and (min-width: 480px) {
   .pricesPlans {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .contentBox {
+    padding: 30px 40px;
+  }
+
+  .contentTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .contentItem:last-of-type {
+    margin-bottom: 15px;
+  }
+
+  .bottomBox {
+    font-size: 18px;
   }
 }
 
