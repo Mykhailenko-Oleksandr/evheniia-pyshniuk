@@ -41,14 +41,14 @@ export default function BurgerMenu({ isOpen, closeMenu }: BurgerMenuProps) {
     }
 
     if (isOpen) {
-      document.body.classList.add("no-scroll");
+      document.body.classList.add("noScroll");
       window.addEventListener("keydown", onEsc);
     } else {
-      document.body.classList.remove("no-scroll");
+      document.body.classList.remove("noScroll");
     }
 
     return () => {
-      document.body.classList.remove("no-scroll");
+      document.body.classList.remove("noScroll");
       window.removeEventListener("keydown", onEsc);
     };
   }, [isOpen, closeMenu]);

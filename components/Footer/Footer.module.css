@@ -3,4 +3,10 @@
   padding-bottom: 20px;
 
   background-color: var(--color-accent-burgundy);
+  border-top: 1px solid var(--color-off-white);
+}
+
+.text {
+  text-align: center;
+  color: var(--color-off-white);
 }

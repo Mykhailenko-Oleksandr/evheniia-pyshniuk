@@ -45,25 +45,30 @@
 
 /* Footer */
 .logoLink.linkFooter {
+  width: fit-content;
   padding: unset;
   flex-direction: column;
   color: var(--color-off-white);
 
-  & .logoIcon {
-    width: 60px;
-    height: 60px;
-    fill: var(--color-off-white);
-  }
+  margin: 0 auto;
+  margin-bottom: 20px;
 
-  &:hover .logoIcon {
+  &:hover .logoIcon,
+  &:focus .logoIcon {
     fill: var(--color-button-hover);
   }
+}
+
+.logoLink.linkFooter .logoIcon {
+  width: 60px;
+  height: 60px;
+  fill: var(--color-off-white);
 }
 
 .logoLink.linkFooter .nameBox {
   display: flex;
   gap: 5px;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 @media only screen and (min-width: 480px) {

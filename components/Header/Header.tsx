@@ -21,6 +21,11 @@ export default function Header() {
       return;
     }
 
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
     setIsMenuOpen(true);
   }
 
