@@ -13,6 +13,7 @@ import { routing } from "@/i18n/routing";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/Header/Header";
 import ThemeInit from "@/components/ThemeInit/ThemeInit";
+import Footer from "@/components/Footer/Footer";
 
 const rubik = Rubik({
   subsets: ["latin", "cyrillic"],
@@ -86,9 +87,9 @@ export default async function LocaleLayout({
           <ThemeInit />
           <NextIntlClientProvider>
             <Header />
-            {children}
+            <main> {children}</main>
+            <Footer />
           </NextIntlClientProvider>
-          {/* <Footer /> */}
           <Toaster />
           <ReactQueryDevtools initialIsOpen={false} />
         </TanStackProvider>

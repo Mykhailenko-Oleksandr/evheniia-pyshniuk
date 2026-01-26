@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 interface NavigationProps {
   isMenu?: boolean;
-  closeMenu: () => void;
+  closeMenu?: () => void;
 }
 
 export default function Navigation({ isMenu, closeMenu }: NavigationProps) {

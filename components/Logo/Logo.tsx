@@ -1,18 +1,20 @@
 import { Link } from "@/i18n/navigation";
 import css from "./Logo.module.css";
 import { useTranslations } from "next-intl";
+import clsx from "clsx";
 
 interface LogoProps {
   closeMenu?: () => void;
+  footer?: boolean;
 }
 
-export default function Logo({ closeMenu }: LogoProps) {
+export default function Logo({ closeMenu, footer }: LogoProps) {
   const t = useTranslations("ariaLabel");
 
   return (
     <Link
       onClick={closeMenu}
-      className={css.logoLink}
+      className={clsx(css.logoLink, footer && css.linkFooter)}
       href="/"
       aria-label={t("logotype")}>
       <svg
