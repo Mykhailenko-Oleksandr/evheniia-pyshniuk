@@ -14,6 +14,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Header from "@/components/Header/Header";
 import ThemeInit from "@/components/ThemeInit/ThemeInit";
 import Footer from "@/components/Footer/Footer";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 
 const rubik = Rubik({
   subsets: ["latin", "cyrillic"],
@@ -51,14 +52,15 @@ interface MetadataProps {
   params: Promise<{ locale: string }>;
 }
 
-// export async function generateMetadata({ params }: MetadataProps) {
-//   const { locale } = await params;
-//   const t = await getTranslations({ locale, namespace: "Metadata" });
+export async function generateMetadata({ params }: MetadataProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.home" });
 
-//   return {
-//     title: t("title"),
-//   };
-// }
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -82,16 +84,19 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${playfairDisplay.variable} ${lora.variable} ${rubik.variable}`}>
+        className={`${playfairDisplay.variable} ${lora.variable} ${rubik.variable}`}
+      >
         <TanStackProvider>
-          <ThemeInit />
-          <NextIntlClientProvider>
-            <Header />
-            <main> {children}</main>
-            <Footer />
-          </NextIntlClientProvider>
-          <Toaster />
-          <ReactQueryDevtools initialIsOpen={false} />
+          <AuthProvider>
+            <ThemeInit />
+            <NextIntlClientProvider>
+              <Header />
+              <main> {children}</main>
+              <Footer />
+            </NextIntlClientProvider>
+            <Toaster />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

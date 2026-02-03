@@ -9,7 +9,6 @@ export type ApiError = AxiosError<{
 }>;
 
 export const api = axios.create({
-  /* Посилання на бекенд */
-  baseURL: "https://",
+  baseURL: "https://yevheniia-pyshniuk-api.onrender.com/api",
   withCredentials: true,
 });
