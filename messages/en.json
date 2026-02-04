@@ -5,6 +5,7 @@
       "description": "Description"
     }
   },
+
   "ariaLabel": {
     "menuBtn": "Open the menu",
     "logotype": "Logotype",
@@ -15,18 +16,64 @@
     "instagram": "Open the Instagram profile",
     "languageBtn": "Switch language to Ukrainian"
   },
+
   "navigation": {
     "prices": "Prices",
     "projects": "Projects"
   },
+
   "authButtons": {
     "register": "Register",
     "login": "Log in"
   },
+
+  "registerPage": {
+    "validation": {
+      "firstName": {
+        "min": "First name must contain at least 3 characters",
+        "max": "First name must not exceed 30 characters",
+        "required": "First name is required"
+      },
+      "lastName": {
+        "min": "Last name must contain at least 3 characters",
+        "max": "Last name must not exceed 30 characters",
+        "required": "Last name is required"
+      },
+      "email": {
+        "invalid": "Invalid email format",
+        "max": "Email must not exceed 64 characters",
+        "required": "Email is required"
+      },
+      "password": {
+        "min": "Password must contain at least 8 characters",
+        "max": "Password must not exceed 100 characters",
+        "required": "Password is required"
+      },
+      "confirmPassword": {
+        "match": "Passwords do not match",
+        "required": "Password confirmation is required"
+      }
+    },
+    "form": {
+      "title": "Registration",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "Your email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "button": "Register"
+    },
+    "toast": "This email address is already in use"
+  },
+
   "pricesHero": {
     "titleTop": "Service ",
     "titleBottom": "prices"
   },
+
   "pricesPlans": {
     "basic": {
       "image": "",

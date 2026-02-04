@@ -1,19 +1,7 @@
 import css from "./Home.module.css";
 import { useTranslations } from "next-intl";
 
-import { setRequestLocale } from "next-intl/server";
-import { use } from "react";
-
-interface HomeProps {
-  params: Promise<{ locale: string }>;
-}
-
-export default function Home({ params }: HomeProps) {
-  const { locale } = use(params);
-
-  // Enable static rendering
-  setRequestLocale(locale);
-
+export default function Home() {
   const t = useTranslations("HomePage");
 
   return (
