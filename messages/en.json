@@ -66,7 +66,9 @@
       "confirmPassword": "Confirm Password",
       "button": "Register"
     },
-    "toast": "This email address is already in use"
+    "toastEmailUse": "This email address is already in use",
+    "textBottom": "Already have an account?",
+    "linkBottom": "Login"
   },
 
   "pricesHero": {
@@ -121,6 +123,9 @@
       "duration": ["Execution time", "3.5-4 months"],
       "price": ["Cost", "17$ /m2"]
     }
+  },
+  "footer": {
+    "textBottom": "Yevheniia Pyshniuk. All rights reserved."
   },
 
   "HomePage": {

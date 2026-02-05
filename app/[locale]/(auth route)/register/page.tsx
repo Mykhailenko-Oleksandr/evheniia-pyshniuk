@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { useAuthStore } from "@/lib/store/authStore";
 import { ApiError } from "@/app/api/api";
 import toast from "react-hot-toast";
-import { useRouter } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 interface FormData {
@@ -68,8 +68,13 @@ export default function Register() {
     } catch (error: unknown) {
       const err = error as ApiError;
 
-      if (err.status === 409) {
-        toast.error(t("toast"));
+      if (
+        err.status === 409 &&
+        err.response?.data?.response?.message.includes(
+          "This email address is already in use",
+        )
+      ) {
+        toast.error(t("toastEmailUse"));
       } else {
         toast.error(
           err.response?.data?.response?.validation?.body?.message ||
@@ -81,112 +86,120 @@ export default function Register() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      }}
-      onSubmit={handleSubmit}
-      validationSchema={createRegistrationFormSchema(t)}
-    >
-      {({ isSubmitting, isValid, dirty }) => (
-        <Form className={css.form}>
-          <fieldset className={css.fieldset}>
-            <legend className={css.title}>{t("form.title")}</legend>
-            <div className={css.inputWrapper}>
-              <label htmlFor="firstName">{t("form.firstName")}*</label>
-              <Field
-                id="firstName"
-                name="firstName"
-                type="text"
-                className={css.formInput}
-                placeholder={t("form.firstNamePlaceholder")}
-              />
-              <ErrorMessage
-                name="firstName"
-                component="span"
-                className={css.formError}
-              />
-            </div>
+    <>
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={createRegistrationFormSchema(t)}
+      >
+        {({ isSubmitting, isValid, dirty }) => (
+          <Form className={css.form}>
+            <fieldset className={css.fieldset}>
+              <legend className={css.title}>{t("form.title")}</legend>
+              <div className={css.inputWrapper}>
+                <label htmlFor="firstName">{t("form.firstName")}*</label>
+                <Field
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  className={css.formInput}
+                  placeholder={t("form.firstNamePlaceholder")}
+                />
+                <ErrorMessage
+                  name="firstName"
+                  component="span"
+                  className={css.formError}
+                />
+              </div>
 
-            <div className={css.inputWrapper}>
-              <label htmlFor="lastName">{t("form.lastName")}*</label>
-              <Field
-                id="lastName"
-                name="lastName"
-                type="text"
-                className={css.formInput}
-                placeholder={t("form.lastNamePlaceholder")}
-              />
-              <ErrorMessage
-                name="lastName"
-                component="span"
-                className={css.formError}
-              />
-            </div>
+              <div className={css.inputWrapper}>
+                <label htmlFor="lastName">{t("form.lastName")}*</label>
+                <Field
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  className={css.formInput}
+                  placeholder={t("form.lastNamePlaceholder")}
+                />
+                <ErrorMessage
+                  name="lastName"
+                  component="span"
+                  className={css.formError}
+                />
+              </div>
 
-            <div className={css.inputWrapper}>
-              <label htmlFor="email">{t("form.email")}*</label>
-              <Field
-                id="email"
-                name="email"
-                type="email"
-                className={css.formInput}
-                placeholder={t("form.emailPlaceholder")}
-              />
-              <ErrorMessage
-                name="email"
-                component="span"
-                className={css.formError}
-              />
-            </div>
+              <div className={css.inputWrapper}>
+                <label htmlFor="email">{t("form.email")}*</label>
+                <Field
+                  id="email"
+                  name="email"
+                  type="email"
+                  className={css.formInput}
+                  placeholder={t("form.emailPlaceholder")}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.formError}
+                />
+              </div>
 
-            <div className={css.inputWrapper}>
-              <label htmlFor="password">{t("form.password")}*</label>
-              <Field
-                id="password"
-                name="password"
-                type="password"
-                className={css.formInput}
-                placeholder="********"
-              />
-              <ErrorMessage
-                name="password"
-                component="span"
-                className={css.formError}
-              />
-            </div>
+              <div className={css.inputWrapper}>
+                <label htmlFor="password">{t("form.password")}*</label>
+                <Field
+                  id="password"
+                  name="password"
+                  type="password"
+                  className={css.formInput}
+                  placeholder="********"
+                />
+                <ErrorMessage
+                  name="password"
+                  component="span"
+                  className={css.formError}
+                />
+              </div>
 
-            <div className={css.inputWrapper}>
-              <label htmlFor="confirmPassword">
-                {t("form.confirmPassword")}*
-              </label>
-              <Field
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                className={css.formInput}
-                placeholder="********"
-              />
-              <ErrorMessage
-                name="confirmPassword"
-                component="span"
-                className={css.formError}
-              />
-            </div>
-            <button
-              type="submit"
-              className={css.btn}
-              disabled={isSubmitting || !isValid || !dirty}
-            >
-              {t("form.button")}
-            </button>
-          </fieldset>
-        </Form>
-      )}
-    </Formik>
+              <div className={css.inputWrapper}>
+                <label htmlFor="confirmPassword">
+                  {t("form.confirmPassword")}*
+                </label>
+                <Field
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  className={css.formInput}
+                  placeholder="********"
+                />
+                <ErrorMessage
+                  name="confirmPassword"
+                  component="span"
+                  className={css.formError}
+                />
+              </div>
+              <button
+                type="submit"
+                className={css.btn}
+                disabled={isSubmitting || !isValid || !dirty}
+              >
+                {t("form.button")}
+              </button>
+            </fieldset>
+          </Form>
+        )}
+      </Formik>
+      <p className={css.formText}>
+        {t("textBottom")}&nbsp;
+        <Link href="/login" className={css.textLink}>
+          {t("linkBottom")}
+        </Link>
+      </p>
+    </>
   );
 }
