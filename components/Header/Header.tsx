@@ -11,10 +11,12 @@ import ToggleButtons from "../ToggleButtons/ToggleButtons";
 import AuthButtons from "../AuthButtons/AuthButtons";
 import { useAuthStore } from "@/lib/store/authStore";
 import UserHeader from "../UserHeader/UserHeader";
+import Modal from "../Modal/Modal";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuthStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user, isAuthenticated } = useAuthStore();
 
   const t = useTranslations("ariaLabel");
 
@@ -35,43 +37,62 @@ export default function Header() {
   function closeMenu() {
     setIsMenuOpen(false);
   }
-  console.log(user);
+
+  async function logout() {
+    console.log("ok");
+  }
 
   return (
-    <header className={css.header}>
-      <div className={`container ${css.headerContainer}`}>
-        <Logo closeMenu={closeMenu} />
+    <>
+      <header className={css.header}>
+        <div className={`container ${css.headerContainer}`}>
+          <Logo closeMenu={closeMenu} />
 
-        <Navigation closeMenu={closeMenu} />
-        <Address />
+          <Navigation closeMenu={closeMenu} />
+          <Address />
 
-        <div className={css.headerRightBox}>
-          <ToggleButtons />
+          <div className={css.headerRightBox}>
+            <ToggleButtons />
 
-          {user ? (
-            <UserHeader user={user} />
-          ) : (
-            <AuthButtons closeMenu={closeMenu} />
-          )}
-        </div>
-
-        <button
-          className={css.menuBtn}
-          type="button"
-          aria-label={t("menuBtn")}
-          onClick={openCloseMenu}
-        >
-          <svg width={40} height={40}>
-            {isMenuOpen ? (
-              <use href="/icons.svg#close"></use>
+            {user && isAuthenticated ? (
+              <UserHeader user={user} openModal={() => setIsModalOpen(true)} />
             ) : (
-              <use href="/icons.svg#menu"></use>
+              <AuthButtons closeMenu={closeMenu} />
             )}
-          </svg>
-        </button>
+          </div>
 
-        <BurgerMenu isOpen={isMenuOpen} closeMenu={closeMenu} />
-      </div>
-    </header>
+          <button
+            className={css.menuBtn}
+            type="button"
+            aria-label={t("menuBtn")}
+            onClick={openCloseMenu}
+          >
+            <svg width={40} height={40}>
+              {isMenuOpen ? (
+                <use href="/icons.svg#close"></use>
+              ) : (
+                <use href="/icons.svg#menu"></use>
+              )}
+            </svg>
+          </button>
+
+          <BurgerMenu
+            isOpen={isMenuOpen}
+            closeMenu={closeMenu}
+            user={user}
+            isAuthenticated
+            openModal={() => setIsModalOpen(true)}
+          />
+        </div>
+      </header>
+
+      {isModalOpen && (
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onConfirm={logout}
+        />
+      )}
+    </>
   );
 }

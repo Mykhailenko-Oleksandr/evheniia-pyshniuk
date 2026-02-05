@@ -7,13 +7,24 @@ import Address from "../Address/Address";
 import ToggleButtons from "../ToggleButtons/ToggleButtons";
 import { MouseEvent, useEffect, useRef } from "react";
 import AuthButtons from "../AuthButtons/AuthButtons";
+import { User } from "@/types/user";
+import UserHeader from "../UserHeader/UserHeader";
 
 interface BurgerMenuProps {
   isOpen: boolean;
   closeMenu: () => void;
+  user: User | null;
+  isAuthenticated: boolean;
+  openModal: () => void;
 }
 
-export default function BurgerMenu({ isOpen, closeMenu }: BurgerMenuProps) {
+export default function BurgerMenu({
+  isOpen,
+  closeMenu,
+  user,
+  isAuthenticated,
+  openModal,
+}: BurgerMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   function handleClickBackdrop(event: MouseEvent<HTMLDivElement>) {
@@ -63,7 +74,12 @@ export default function BurgerMenu({ isOpen, closeMenu }: BurgerMenuProps) {
         <Navigation isMenu={isOpen} closeMenu={closeMenu} />
         <Address isMenu={isOpen} />
         <ToggleButtons isMenu={isOpen} />
-        <AuthButtons isMenu={isOpen} closeMenu={closeMenu} />
+
+        {user && isAuthenticated ? (
+          <UserHeader isMenu={isOpen} user={user} openModal={openModal} />
+        ) : (
+          <AuthButtons isMenu={isOpen} closeMenu={closeMenu} />
+        )}
       </div>
     </div>
   );
