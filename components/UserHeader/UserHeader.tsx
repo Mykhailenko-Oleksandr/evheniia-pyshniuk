@@ -5,6 +5,7 @@ import css from "./UserHeader.module.css";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 interface UserHeaderProps {
   user: User;
@@ -17,13 +18,16 @@ export default function UserHeader({
   openModal,
   isMenu,
 }: UserHeaderProps) {
+  const tAriaLabel = useTranslations("ariaLabel");
+  const t = useTranslations("userHeader");
+
   return (
     <>
       <div className={css.box}>
         <Link href="/profile" className={css.link}>
           <Image
             src={user.avatar}
-            alt="Avatar"
+            alt={t("altImg")}
             width={37}
             height={37}
             className={clsx(css.img, isMenu && css.menuImg)}
@@ -39,7 +43,7 @@ export default function UserHeader({
           type="button"
           className={css.logoutBtn}
           onClick={openModal}
-          aria-label="Вийти з облікового запису"
+          aria-label={tAriaLabel("logoutBtn")}
         >
           <svg width="30" height="30">
             <use href="/icons.svg#logout" />

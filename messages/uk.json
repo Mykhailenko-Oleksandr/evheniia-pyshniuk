@@ -14,7 +14,9 @@
     "telegram": "Написати повідомлення у Telegram",
     "whatsApp": "Написати повідомлення у WhatsApp",
     "instagram": "Відкрити профіль в Instagram",
-    "languageBtn": "Перемкнути мову на англійську"
+    "languageBtn": "Перемкнути мову на англійську",
+    "logoutBtn": "Вийти з облікового запису",
+    "closeModalBtn": "Закрити модальне вікно"
   },
 
   "navigation": {
@@ -94,6 +96,16 @@
     "toastBadLogin": "Невірний логін або пароль",
     "textBottom": "Не маєте аккаунту?",
     "linkBottom": "Реєстрація"
+  },
+
+  "userHeader": {
+    "altImg": "Аватар"
+  },
+
+  "modal": {
+    "title": "Ви точно хочете вийти?",
+    "acceptBtn": "Вийти",
+    "cancelBtn": "Залишитися"
   },
 
   "pricesHero": {

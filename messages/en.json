@@ -14,7 +14,9 @@
     "telegram": "Send a message on Telegram",
     "whatsApp": "Send a message on WhatsApp",
     "instagram": "Open the Instagram profile",
-    "languageBtn": "Switch language to Ukrainian"
+    "languageBtn": "Switch language to Ukrainian",
+    "logoutBtn": "Log out of account",
+    "closeModalBtn": "Close modal window"
   },
 
   "navigation": {
@@ -24,7 +26,7 @@
 
   "authButtons": {
     "register": "Register",
-    "login": "Login"
+    "login": "Log in"
   },
 
   "registerPage": {
@@ -94,6 +96,16 @@
     "toastBadLogin": "Incorrect login or password",
     "textBottom": "Don't have an account?",
     "linkBottom": "Register"
+  },
+
+  "userHeader": {
+    "altImg": "Avatar"
+  },
+
+  "modal": {
+    "title": "Are you sure you want to log out?",
+    "acceptBtn": "Log out",
+    "cancelBtn": "Stay"
   },
 
   "pricesHero": {
